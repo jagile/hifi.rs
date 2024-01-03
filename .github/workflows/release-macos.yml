@@ -21,10 +21,10 @@ jobs:
           shared-key: ${{ runner.target }}-rust-cache
       - uses: extractions/setup-just@v1
       - name: Build player
-        run: just build-player x86_64-apple-darwin
-      - name: Tar hifi-rs-x86_64-apple-darwin.tar.gz
-        run: tar -cvf hifi-rs-x86_64-apple-darwin.tar.gz -C ./target/x86_64-apple-darwin/release/ hifi-rs
+        run: just build-player aarch64-apple-darwin
+      - name: Tar hifi-rs-aarch64-apple-darwin.tar.gz
+        run: tar -cvf hifi-rs-aarch64-apple-darwin.tar.gz -C ./target/aarch64-apple-darwin/release/ hifi-rs
       - name: Release ${{ matrix.target }}
         uses: softprops/action-gh-release@v1
         with:
-          files: hifi-rs-x86_64-apple-darwin.tar.gz
+          files: hifi-rs-aarch64-apple-darwin.tar.gz
