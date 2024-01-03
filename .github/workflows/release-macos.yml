@@ -21,6 +21,8 @@ jobs:
         with:
           shared-key: ${{ runner.target }}-rust-cache
       - uses: extractions/setup-just@v1
+      - name: just add-target
+        run: just add-target aarch64-apple-darwin
       - name: Build player
         run: just build-player aarch64-apple-darwin
       - name: Tar hifi-rs-aarch64-apple-darwin.tar.gz
